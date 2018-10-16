@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/Tocyuki/ansible-role-zsh.svg?branch=master)](https://travis-ci.org/Tocyuki/ansible-role-zsh)*
-
 Ansible Role: Zsh
 =========
+
+[![Build Status](https://travis-ci.org/Tocyuki/ansible-role-zsh.svg?branch=master)](https://travis-ci.org/Tocyuki/ansible-role-zsh)
 
 A brief description of the role goes here.
 
