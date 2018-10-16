@@ -1,4 +1,6 @@
-Role Name
+[![Build Status](https://travis-ci.org/Tocyuki/ansible-role-zsh.svg?branch=master)](https://travis-ci.org/Tocyuki/ansible-role-zsh)*
+
+Ansible Role: Zsh
 =========
 
 A brief description of the role goes here.
@@ -30,9 +32,9 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+@Tocyuki
