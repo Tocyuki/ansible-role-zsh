@@ -7,11 +7,8 @@
 
 - name: Install zsh & qhg
   yum:
-    name: "{{ item }}"
+    name: [u'zsh', u'ghq']
     state: latest
-  with_items:
-    - zsh
-    - golang
 
 - name: Clone zplug
   git:
