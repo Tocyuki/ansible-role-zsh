@@ -1,13 +1,19 @@
 ---
 # tasks file for ansible-role-zsh
-- name: Install libralies
+- name: Install epel-release
   yum:
-    name: "{{ item }}"
+    name: epel-release
     state: latest
-  with_items:
-    - epel-release
-    - zsh
-    - ghq
+
+- name: Install golang
+  yum:
+    name: golang
+    state: latest
+
+- name: Install zsh
+  yum:
+    name: zsh
+    state: latest
 
 - name: Clone zplug
   git:
