@@ -7,7 +7,7 @@
 
 - name: Install zsh & qhg
   yum:
-    name: [u'zsh', u'ghq']
+    name: "[u'zsh', u'ghq']"
     state: latest
 
 - name: Clone zplug
