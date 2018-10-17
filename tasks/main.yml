@@ -17,3 +17,18 @@
 
 - name: Install ghq
   command: go get github.com/motemen/ghq
+
+- name: Clone dotfiles
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: $HOME/dotfiles
+    version: master
+
+- name: Create link
+  file:
+    src: "$HOME/dotfiles/{{ item }}"
+    dest: "$HOME/{{ item }}"
+    state: link
+  with_items:
+    - .zshenv
+    - .zshrc
