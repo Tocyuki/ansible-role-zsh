@@ -1,28 +1,25 @@
 ---
 language: python
-python: 2.7
-sudo: false
+services: docker
 
-# Install Ansible
-addons:
-  apt:
-    packages:
-      - python
+env:
+  global:
+    - ROLE_NAME: zsh
+  matrix:
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: centos7
+      MOLECULE_DOCKER_COMMAND: /usr/lib/systemd/systemd
 
 install:
-  # Install ansible
-  - pip install ansible
+  # Install test dependencies
+  - pip install molecule docker
 
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory
+  - cd ../
+  - mv ansible-role-$ROLE_NAME tocyuki.$ROLE_NAME
+  - cd tocyuki.$ROLE_NAME
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-  # Run playbook in dry-run mode
-  - ansible-playbook tests/test.yml -i tests/inventory -C
-  # Run playbook
-  - ansible-playbook tests/test.yml -i tests/inventory
+  # Run tests
+  - molecule test
